@@ -34,6 +34,7 @@ export function readSecretsAction(options: { config: Config; logger: LoggerServi
     }),
   },
 async handler(ctx) {
+    try{
     const { secretNames } = ctx.input;
     logger.info("Extracting Secret from Azure Key Vault");
     var service = AzureKeyVaultService.fromConfig(config,options);
@@ -48,7 +49,14 @@ async handler(ctx) {
         })
     }
     logger.info("Final result before response : " + JSON.stringify(finalResult));
-    ctx.output('result', { finalResult });
+    ctx.output('result', [
+  { key: 'testkey', value: 'testvalue' }
+]);
+    }catch(error)
+    {
+        logger.error("Failed to fetch secrets: " + (error as Error).message);
+        throw error;
+    }
   },
 
 })
