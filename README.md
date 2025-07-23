@@ -33,7 +33,7 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
 ```
     Note : Update the scope @anattama -> what you prefer in package.json file before compiling and packaging.
 ```    
-## install dependencies
+## Install dependencies
 
 ```
     yarn install
@@ -47,6 +47,29 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
       yarn export-dynamic
 ```
 
+## Setup .npmrc file
+   This file is located in home directory as a hidden file. We need to update this file to reflect the right npmregistry
+
+   Sample .npmrc file shown below In this case Azure Artifactory is being used as npmregistry but we can also uses Nexus,Jfrog artifactory.
+
+   Scope `@anattama:registry` tells the `npm publish` to point which registry
+
+   ```
+            ;//nexus-nexus.apps.cluster-jtdkc.sandbox251.opentlc.com/repository/:_authToken=<<Nexus Token>>
+            @anattama:registry=https://pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/registry/
+            always-auth=true
+            ; begin auth token
+            //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/registry/:username=anattama
+            //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/registry/:_password=<<BASE64 Encoded Token>>
+            //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/registry/:email=<<email_address>>
+            //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/:username=anattama
+            //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/:_password=<<BASE64 Encoded Token>>
+            //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/:email=<<email_address>>
+            ; end auth token
+    ```        
+
+
+
 ## Package and Publish 
 
 ```
@@ -54,3 +77,11 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
      npm pack . --json > ../npminfo.json #This will provide SHA integrity for the pacakage
      npm publish # Depending on scope @ in package.json the .npmrc file will decide where to push the package.
 ```
+
+# Injecting plugin into DevHub
+
+### Plugin Architecture Injection
+      
+![Dynamic Plugin Injection](/docs/dynamic-plugin-injection.png)
+
+
