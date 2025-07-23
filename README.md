@@ -110,8 +110,26 @@ Note : this secret must be named as `dynamic-plugins-npmrc` and it should exists
 Add the following section to the dynamic plugin configmap
 
 ```
- - package: '@<<scope>>/backstage-plugin-scaffolder-azure-key-vault-dynamic@<<Version>>'
+      - package: '@<<scope>>/backstage-plugin-scaffolder-azure-key-vault-dynamic@<<Version>>'
         integrity: <<SHA from npminfo.json>>
         disabled: false
 ```           
 
+### Updating the `app-config` configmap
+
+This plugin requires the following configuration at root level as defined in `config.d.ts` file
+
+```
+ # Key Vault Oauth App should have Role as "Key Vault Secrets User" to the Key Vault
+ AzureKeyVaultConfig:
+    tenantId: "<<TENANT ID from OAUTH>>"
+    clientId: "<<CLIENT ID from OAUTH>>"
+    clientSecret: "<<CLIENTSECRET from OAUTH>>"
+    vaultURI: "<<AZURE KEY VAULT URI>>"
+```
+
+## Verify custom action by this plugin
+
+Goto `https://<devhubhome>/create/actions` verify the new scaffolding action is shown
+
+![Installed Actions](/docs/installed%20actions.png)
