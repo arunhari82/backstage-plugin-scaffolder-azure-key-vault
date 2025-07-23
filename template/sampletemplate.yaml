@@ -25,7 +25,7 @@ spec:
       name: Get Azure Key Vault Secrets
       action: azure-key-vault:getSecrets
       input:
-        secretNames: "{{ parameters.secretNames }}"
+        secretNames: {{ parameters.secretNames }}
 
     - id: log-fetched-values
       name: log fetch secrets output
