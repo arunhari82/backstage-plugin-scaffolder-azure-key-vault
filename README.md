@@ -1,5 +1,9 @@
 # backstage-plugin-scaffolder-backend-module-azure-key-vault
 
-The azure-key-vault module for [@backstage/plugin-scaffolder-backend](https://www.npmjs.com/package/@backstage/plugin-scaffolder-backend).
+Welcome to Azure Key Vault Scaffolding action plugin. This plugin provides a custom action `azure-key-vault:getSecrets` that help retreive the value for Azure Key Vault(AKV) 
 
-_This plugin was created through the Backstage CLI_
+## Architecture
+
+The logical flow explains how this plugin works.
+
+![Architecture](/docs/azure-key-vault.png)
