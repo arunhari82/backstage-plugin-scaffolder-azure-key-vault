@@ -86,4 +86,32 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
       
 ![Dynamic Plugin Injection](/docs/dynamic-plugin-injection.png)
 
+## Deploying the plugin with Dev Hub.
+
+### setup secret `dynamic-plugins-npmrc`
+
+This secret contains the registry information please refer to runtime section of architecture diagram above. Sample secret yaml below
+
+```
+      kind: Secret
+      apiVersion: v1
+      metadata:
+            name: dynamic-plugins-npmrc
+            namespace: backstage
+      data:
+         .npmrc: <<BASE64 Encoded file content of .npmrc file>>
+      type: Opaque
+
+```
+
+Note : this secret must be named as `dynamic-plugins-npmrc` and it should exists in the same namespace  as devhub installed namespace.
+
+### Updating the dynamic plugin config map.
+Add the following section to the dynamic plugin configmap
+
+```
+ - package: '@<<scope>>/backstage-plugin-scaffolder-azure-key-vault-dynamic@<<Version>>'
+        integrity: <<SHA from npminfo.json>>
+        disabled: false
+```           
 
