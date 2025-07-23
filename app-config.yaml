@@ -1,0 +1,6 @@
+ # Key Vault Oauth App should have Role as "Key Vault Secrets User" to the Key Vault
+ AzureKeyVaultConfig:
+    tenantId: "<<TENANT ID from OAUTH>>"
+    clientId: "<<CLIENT ID from OAUTH>>"
+    clientSecret: "<<CLIENTSECRET from OAUTH>>"
+    vaultURI: "<<AZURE KEY VAULT URI>>"
