@@ -48,7 +48,7 @@ async handler(ctx) {
         })
     }
     logger.info("Final result before response : " + JSON.stringify(finalResult));
-    ctx.output('result', finalResult);
+    ctx.output('result', { finalResult });
   },
 
 })
