@@ -37,6 +37,7 @@ Create the Key vault and note down the `Vault URI` and assign a role via Access 
 ```
 
 Role Required : (Key Vault Secrets User) This gives only read access to vault
+
 ![Assign Role](/docs/azure-register-app-assign-role.png)
 
 # 2.Compiling and packaging the plugin
