@@ -4,13 +4,9 @@ import { AzureKeyVaultService } from '../azure-service/azure-service';
 import { LoggerService } from '@backstage/backend-plugin-api';
 import { Config } from '@backstage/config';
 /**
- * Creates an `acme:example` Scaffolder action.
+ * Creates an `azure-key-vault:getSecrets` Scaffolder action.
  *
- * @remarks
- *
- * See {@link https://example.com} for more information.
- *
- * @public
+ *  createTemplateAction method defines the input and output schema and handler is where all the logic happens
  */
 
 export function readSecretsAction(options: { config: Config; logger: LoggerService }) { 
