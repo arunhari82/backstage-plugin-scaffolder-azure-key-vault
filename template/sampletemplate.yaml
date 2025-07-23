@@ -11,7 +11,7 @@ spec:
   parameters:
     - title: Input Strings
       required:
-        - strings
+        - secretNames
       properties:
         secretNames:
           type: array
