@@ -54,8 +54,9 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
 
    Scope `@anattama:registry` tells the `npm publish` to point which registry
 
-   ```
-            ;//nexus-nexus.apps.cluster-jtdkc.sandbox251.opentlc.com/repository/:_authToken=<<Nexus Token>>
+
+```
+  ;//nexus-nexus.apps.cluster-jtdkc.sandbox251.opentlc.com/repository/:_authToken=<<Nexus Token>>
             @anattama:registry=https://pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/registry/
             always-auth=true
             ; begin auth token
@@ -66,7 +67,8 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
             //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/:_password=<<BASE64 Encoded Token>>
             //pkgs.dev.azure.com/anattama/_packaging/mynpmregsitry/npm/:email=<<email_address>>
             ; end auth token
-    ```        
+          
+```        
 
 
 
