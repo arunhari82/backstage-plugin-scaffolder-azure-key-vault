@@ -9,7 +9,7 @@ spec:
   type: service
 
   parameters:
-    - title: Input Strings
+    - title: List of Secret Names to be retrived from Azure Vault
       required:
         - secretNames
       properties:
