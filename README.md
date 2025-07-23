@@ -4,7 +4,15 @@ Welcome to Azure Key Vault Scaffolding action plugin. This plugin provides a cus
 ```
    azure-key-vault:getSecrets
 ``` 
-that help retreive the value for Azure Key Vault(AKV) 
+that help retreive the values stored in for Azure Key Vault(AKV) by taking list of secretnames and produces an array of Object with key,value so that it can be used in backstage templates.
+
+This plugin uses the following node packages as dependencies from Azure.
+
+```
+     "@azure/keyvault-secrets": "4.10.0",
+     "@azure/identity": "4.10.2"
+
+```
 
 ## 1. Architecture
 
