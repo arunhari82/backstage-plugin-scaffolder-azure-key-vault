@@ -9,16 +9,16 @@ spec:
   type: service
 
   parameters:
-    - title: List of Secret Names to be retrived from Azure Vault
-      required:
-        - secretNames
+    - title: Azure Key Vault Input
       properties:
         secretNames:
           type: array
-          title: Provide an Array of Secret Names
-          description: Enter a list of strings
+          title: Secret Names
+          description: List of secret names to fetch
           items:
             type: string
+      required:
+        - secretNames
 
   steps:
     - id: get-azure-secrets
