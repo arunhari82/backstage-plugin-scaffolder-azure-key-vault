@@ -19,3 +19,11 @@ The logical flow explains how this plugin works.
 Register a new App with Microsoft Entra ID (https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps) and collect `TenantID,ClientID`. Under `Certificate and Secrets` create a client secret. and collect `ClientSecret`
 
 ![Oauth App](/docs/azure-oauth-app-registration.png)
+
+### Create Key Vault and assign role
+
+Create the Key vault and note down the `Vault URI` and assign a role via Access Control (IAM) menu to the registered app
+
+
+Role Required : (Key Vault Secrets User) This gives only read access to vault
+![Assign Role](/docs/azure-register-app-assign-role.png)
