@@ -27,3 +27,29 @@ Create the Key vault and note down the `Vault URI` and assign a role via Access 
 
 Role Required : (Key Vault Secrets User) This gives only read access to vault
 ![Assign Role](/docs/azure-register-app-assign-role.png)
+
+# Compiling and packaging the plugin
+
+```
+    Note : Update the scope @anattama -> what you prefer in package.json file before compiling and packaging.
+```    
+## install dependencies
+
+```
+    yarn install
+```    
+
+## Compile for Dynamic plugin
+```
+      yarn clean
+      yarn tsc
+      yarn build
+      yarn export-dynamic
+```
+
+## Package and Publish 
+
+```
+     cd dist-dynamic
+     npm pack . --json > ../npminfo.json #This will provide SHA integrity for the pacakage
+```
