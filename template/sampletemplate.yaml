@@ -15,7 +15,7 @@ spec:
       properties:
         secretNames:
           type: array
-          title: Array of Strings
+          title: Provide an Array of Secret Names
           description: Enter a list of strings
           items:
             type: string
