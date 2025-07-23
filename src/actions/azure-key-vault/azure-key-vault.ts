@@ -49,9 +49,7 @@ async handler(ctx) {
         })
     }
     logger.info("Final result before response : " + JSON.stringify(finalResult));
-    ctx.output('result', [
-  { key: 'testkey', value: 'testvalue' }
-]);
+    ctx.output('result', finalResult);
     }catch(error)
     {
         logger.error("Failed to fetch secrets: " + (error as Error).message);
