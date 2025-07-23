@@ -21,11 +21,17 @@ spec:
             type: string
 
   steps:
-    - id: display
-      name: Display Strings
-      action: custom:display-array
+    - id: get-azure-secrets
+      name: Get Azure Key Vault Secrets
+      action: azure-key-vault:getSecrets
       input:
-        strings: '{{ parameters.secretNames }}'
+        secretNames: "{{ parameters.secretNames }}"
+
+    - id: log-fetched-values
+      name: log fetch secrets output
+      action: debug:log  
+      input: 
+         message: ${{steps.get-azure-secrets.output.results}}  
 
   output:
     text:
