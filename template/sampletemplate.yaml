@@ -1,0 +1,34 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: azure-get-secret-test
+  title: Display Array of Strings
+  description: A template that takes an array of strings and displays each value.
+spec:
+  owner: user:guest
+  type: service
+
+  parameters:
+    - title: Input Strings
+      required:
+        - strings
+      properties:
+        secretNames:
+          type: array
+          title: Array of Strings
+          description: Enter a list of strings
+          items:
+            type: string
+
+  steps:
+    - id: display
+      name: Display Strings
+      action: custom:display-array
+      input:
+        strings: '{{ parameters.secretNames }}'
+
+  output:
+    text:
+      - title: Strings Displayed
+        content: |
+          The input strings were displayed in the logs.
