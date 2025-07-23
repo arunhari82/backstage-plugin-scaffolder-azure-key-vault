@@ -38,7 +38,7 @@ async handler(ctx) {
     logger.info("Extracting Secret from Azure Key Vault");
     var service = AzureKeyVaultService.fromConfig(config,options);
     var result = await service.getSecrets(secretNames);
-    logger.info("Final result before response : " + JSON.stringify(result) );
+    //logger.info("Final result before response : " + JSON.stringify(result) );
     var finalResult = []
     for(var i=0;i<result.length;i++)
     {
@@ -47,6 +47,7 @@ async handler(ctx) {
             value : result[i].value? result[i].value : ""
         })
     }
+    logger.info("Final result before response : " + JSON.stringify(finalResult));
     ctx.output('result', finalResult);
   },
 
