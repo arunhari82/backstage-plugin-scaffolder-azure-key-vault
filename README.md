@@ -1,4 +1,4 @@
-# backstage-plugin-scaffolder-backend-module-azure-key-vault
+# backstage-plugin-scaffolder-azure-key-vault
 
 Welcome to Azure Key Vault Scaffolding action plugin. This plugin provides a custom action 
 ```
