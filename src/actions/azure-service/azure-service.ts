@@ -50,15 +50,17 @@ export class AzureKeyVaultService {
         var credentials : ClientSecretCredential = new ClientSecretCredential(this.tenantid,this.clientId,this.clientSecret);
         const client : SecretClient = new SecretClient(this.vaultURI,credentials);
         var result : SecretEntry[] = []
-        secretNames.forEach(async (name) => {
-            var secret = await client.getSecret(name);
+        for(var i=0;i<secretNames.length;i++)
+        {
+            var secret = await client.getSecret(secretNames[i]);
             var output : SecretEntry = {
                 key: secret.name,
                 value: secret.value ? secret.value : ""
             }
+            this.logger.info("Azure vault value Fetched Value is : " + secret.name + " -> " + secret.value);
             result.push(output);
-        });
-
+        }
+        this.logger.info("Azure Fetch Results is : " + JSON.stringify(result));
         return result;
     }
     

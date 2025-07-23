@@ -37,8 +37,9 @@ async handler(ctx) {
     const { secretNames } = ctx.input;
     logger.info("Extracting Secret from Azure Key Vault");
     var service = AzureKeyVaultService.fromConfig(config,options);
-    var result = service.getSecrets(secretNames);
-    ctx.output('result', JSON.stringify(result));
+    var result = await service.getSecrets(secretNames);
+    logger.info("Final result before response : " + JSON.stringify(result) );
+    ctx.output('result', result);
   },
 
 })
