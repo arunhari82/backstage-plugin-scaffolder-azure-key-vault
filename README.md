@@ -24,6 +24,9 @@ Register a new App with Microsoft Entra ID (https://portal.azure.com/#view/Micro
 
 Create the Key vault and note down the `Vault URI` and assign a role via Access Control (IAM) menu to the registered app
 
+```
+   Note :- All the values noted will be used in section 3 while updating app-config.yaml 
+```
 
 Role Required : (Key Vault Secrets User) This gives only read access to vault
 ![Assign Role](/docs/azure-register-app-assign-role.png)
@@ -120,7 +123,6 @@ Add the following section to the dynamic plugin configmap
 This plugin requires the following configuration at root level as defined in `config.d.ts` file
 
 ```
- # Key Vault Oauth App should have Role as "Key Vault Secrets User" to the Key Vault
  AzureKeyVaultConfig:
     tenantId: "<<TENANT ID from OAUTH>>"
     clientId: "<<CLIENT ID from OAUTH>>"
