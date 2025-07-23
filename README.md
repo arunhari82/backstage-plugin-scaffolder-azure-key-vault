@@ -52,4 +52,5 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
 ```
      cd dist-dynamic
      npm pack . --json > ../npminfo.json #This will provide SHA integrity for the pacakage
+     npm publish # Depending on scope @ in package.json the .npmrc file will decide where to push the package.
 ```
