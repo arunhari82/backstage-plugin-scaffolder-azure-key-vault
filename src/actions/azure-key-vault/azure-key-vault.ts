@@ -39,7 +39,15 @@ async handler(ctx) {
     var service = AzureKeyVaultService.fromConfig(config,options);
     var result = await service.getSecrets(secretNames);
     logger.info("Final result before response : " + JSON.stringify(result) );
-    ctx.output('result', JSON.stringify(result));
+    var finalResult = []
+    for(var i=0;i<result.length;i++)
+    {
+        finalResult.push({
+            key: result[i].key,
+            value : result[i].value? result[i].value : ""
+        })
+    }
+    ctx.output('result', finalResult);
   },
 
 })
