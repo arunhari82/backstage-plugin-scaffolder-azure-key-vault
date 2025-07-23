@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: azure-get-secret-test
-  title: Display Array of Strings
+  title: Get Azure Secrets Template which uses custom action
   description: A template that takes an array of strings and displays each value.
 spec:
   owner: user:guest
