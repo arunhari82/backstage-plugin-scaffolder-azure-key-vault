@@ -6,7 +6,7 @@ Welcome to Azure Key Vault Scaffolding action plugin. This plugin provides a cus
 ``` 
 that help retreive the value for Azure Key Vault(AKV) 
 
-## Architecture
+## 1. Architecture
 
 The logical flow explains how this plugin works.
 
@@ -28,7 +28,7 @@ Create the Key vault and note down the `Vault URI` and assign a role via Access 
 Role Required : (Key Vault Secrets User) This gives only read access to vault
 ![Assign Role](/docs/azure-register-app-assign-role.png)
 
-# Compiling and packaging the plugin
+# 2.Compiling and packaging the plugin
 
 ```
     Note : Update the scope @anattama -> what you prefer in package.json file before compiling and packaging.
@@ -80,7 +80,7 @@ Role Required : (Key Vault Secrets User) This gives only read access to vault
      npm publish # Depending on scope @ in package.json the .npmrc file will decide where to push the package.
 ```
 
-# Injecting plugin into DevHub
+# 3.Injecting plugin into DevHub
 
 ### Plugin Architecture Injection
       
@@ -128,8 +128,11 @@ This plugin requires the following configuration at root level as defined in `co
     vaultURI: "<<AZURE KEY VAULT URI>>"
 ```
 
-## Verify custom action by this plugin
+# 4.Verify custom action by this plugin
 
 Goto `https://<devhubhome>/create/actions` verify the new scaffolding action is shown
 
 ![Installed Actions](/docs/installed%20actions.png)
+
+# 5.Execute the Template using this custom action
+  Please refer file `template/azure-get-secret-template-v1.1.yaml`
